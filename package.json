@@ -1,16 +1,37 @@
 {
-  "name": "less1",
+  "name": "goit-practice12",
   "version": "1.0.0",
-  "main": "test.js",
+  "description": "",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node test"
+    "start": "node server",
+    "start:dev": "npx nodemon server",
+    "lint": "npx eslint src server.js",
+    "lint:fix": "npx eslint --fix src server.js"
   },
-  "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": "",
   "dependencies": {
-    "calc-js": "^2.0.7"
+    "@google-cloud/storage": "^5.8.5",
+    "@sendgrid/mail": "^7.4.5",
+    "bcrypt": "^5.0.1",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "joi": "^17.4.0",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.12.14",
+    "morgan": "^1.10.0",
+    "multer": "^1.4.2",
+    "sha256": "^0.2.0",
+    "socket.io": "^4.1.2",
+    "uuid": "^8.3.2"
+  },
+  "devDependencies": {
+    "eslint": "^7.28.0",
+    "eslint-config-google": "^0.14.0",
+    "jest": "^27.0.6",
+    "nodemon": "^2.0.7",
+    "npx": "^10.2.2"
   }
 }
