@@ -1,9 +1,16 @@
 const express = require('express');
-const morgan = require('morgan')
+const morgan = require('morgan');
+const got = require('got');
 const app = express();
+// import got from 'got';
 
 // todo: 1.2 // 1:52:20 - розгорнути простий веб-сервер
-// 1:57:0 - middleware morgan//тількти установка та лог у консоль
+// 1:57:0 - middleware morgan//тільки установка та лог у консоль
+//2.3 - 11:00 - start (MVC)
+
+const {router} = require('./booksRourter')
+
+
 
 const PORT = 8081;
 
@@ -11,61 +18,28 @@ app.use(express.json());
 app.use(express.urlencoded({extended: true}));//обробка стандартних даних хтмл-форм ?? deprecated
 app.use(express.static('public'));// дозволяє зробити директорію публічною
 app.use(morgan('tiny'));
-
-// app.get('/home', (request, response) => {
-//     response.sendStatus(200);
-// })
-
-/*app.use( (request, response, next) => {
-    // response.send('middleware request');
-    // response.status(500).json({status: '500 ))'})
-    console.log(`${request.method} ${request.originalUrl} ${new Date().toISOString()}`);
-    next();
-})*/
+// app.use(router);
+// app.use('/api', router);
 
 
+//todo: pause 45m (2.3)
 
-app.get('/home', (request, response) => {
-    // response.send('get request');
-    response.json([//автоматом робитьт JSON.stringify
-        {type: 'get response',
-            format: 'json'},
-        {content: 'test message',
-            contentType: 'string'}
-    ])
-})
-
-app.post('/home', (req, res) => {
-    // response.send('post request');
-    if(!req.body.id) {
-        res.status(400).json({status: 'id parametr is required'})//валідація запиту 1:55
+app.get('/weather', async (req, res) => {
+    try {
+        const response = await got('http://api.weatherbit.io/v2.0/current', {searchParams: {
+            key: '161b71ae33f348868722ad1c9f0e1796',
+                lat: '48.4752389',
+                lon: '35.037077',
+            },
+            responseType: 'json'
+        });
+        res.json({response: response.body})
+    } catch (err) {
+        res.status(500).json({message: err.message})
     }
-    console.log(req.body);
-    res.json({javascript: 'object', body: req.body})
-    const {id} = req.body;
-    console.log(id);
-
-})
-
-app.delete('/home', (request, response) => {
-    response.send('delete request');
-})
+    })
 
 
-
-// app.get('/home' - це routing
-
-/*    (request, response) => {
-    // response.send('middleware request');              це middleware (обробник запиту, але не тільки)
-    response.status(500).json({status: '500 ))'})
-}*/
-
-/*app.use( (request, response, next) => {
-    // response.send('middleware request');
-    // response.status(500).json({status: '500 ))'})
-    console.log(`${request.method} ${request.originalUrl} ${new Date().toISOString()}`);
-    next()
-})*/
 
 app.listen(PORT, (err) => {
     if (err) {

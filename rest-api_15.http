@@ -1,0 +1,28 @@
+GET http://localhost:80/api/item?id=99
+Accept: application/json
+
+###
+
+### Send POST request with json body
+POST http://localhost:8081/home
+Content-Type: application/json
+
+{
+  "id": 999,
+  "value": "content"
+}
+
+###
+GET http://localhost:8081/books
+Accept: application/json
+###
+GET http://localhost:8081/api/books
+Accept: application/json
+###
+GET http://api.weatherbit.io/v2.0/current?key=161b71ae33f348868722ad1c9f0e1796&lat=48.4752389&lon=35.037077
+#GET http://api.weatherbit.io/v2.0/current?key=161b71ae33f348868722ad1c9f0e1796 //709930 - DNIPRO ID
+
+Accept: application/json
+###
+GET http://localhost:8081/weather
+Accept: application/json
