@@ -3,7 +3,7 @@ const morgan = require('morgan')
 const app = express();
 
 // todo: 1.2 // 1:52:20 - розгорнути простий веб-сервер
-// 1:57:0 - middleware morgan
+// 1:57:0 - middleware morgan//тількти установка та лог у консоль
 
 const PORT = 8081;
 
@@ -74,4 +74,4 @@ app.listen(PORT, (err) => {
     console.log(`Server works at port ${PORT}`);
 });
 
-//todo: pause - 1.2 1h34m
+//todo: pause - 1.2 1h45m
