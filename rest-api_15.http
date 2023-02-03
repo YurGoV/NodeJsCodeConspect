@@ -26,3 +26,6 @@ Accept: application/json
 ###
 GET http://localhost:8081/weather
 Accept: application/json
+###
+GET http://localhost:8081/weather?latitude=50.434386&longitude=30.505367
+Accept: application/json
