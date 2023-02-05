@@ -1,16 +1,37 @@
+GET http://localhost:8081/api/posts
+Accept: application/json
+###
+
+GET http://localhost:8081/api/posts/3
+Accept: application/json
+###
+
+POST http://localhost:8081/api/posts
+Content-Type: application/json
+
+{
+  "topic": "po",
+  "text": "post content"
+}
+###
+PUT http://localhost:8081/api/posts/1
+Content-Type: application/json
+
+{
+  "topic": "put1",
+  "text": "post1 content"
+}
+
+###
+DELETE http://localhost:8081/api/posts/1
+Content-Type: application/json
+
+
+###
 GET http://localhost:80/api/item?id=99
 Accept: application/json
 
 ###
-
-### Send POST request with json body
-POST http://localhost:8081/home
-Content-Type: application/json
-
-{
-  "id": 999,
-  "value": "content"
-}
 
 ###
 GET http://localhost:8081/books
