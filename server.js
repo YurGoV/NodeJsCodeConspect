@@ -6,7 +6,7 @@ const app = express();
 require('dotenv').config()
 
 
-const {postsRouter} = require('./routers/postsRourter')
+const {postsRouter} = require('./src/routers/postsRourter')
 
 // process.ENV
 
