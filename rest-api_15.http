@@ -10,7 +10,7 @@ POST http://localhost:8081/api/posts
 Content-Type: application/json
 
 {
-  "topic": "po",
+  "topic": "pop",
   "text": "post content"
 }
 ###
