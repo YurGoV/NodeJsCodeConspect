@@ -1,8 +1,8 @@
 GET http://localhost:8081/api/posts
 Accept: application/json
-###
 
-GET http://localhost:8081/api/posts/3
+###
+GET http://localhost:8081/api/posts/63e950f501d1b8ba104809f7
 Accept: application/json
 ###
 
@@ -10,43 +10,37 @@ POST http://localhost:8081/api/posts
 Content-Type: application/json
 
 {
-  "topic": "pop",
-  "text": "post content"
+  "topic": "pop5",
+  "text": "post content5"
 }
 ###
-PUT http://localhost:8081/api/posts/1
+
+###
+PUT http://localhost:8081/api/posts/63e9fe6e8056d21110793bf7
 Content-Type: application/json
 
 {
-  "topic": "put1",
-  "text": "post1 content"
+  "topic": "put52",
+  "text": "post5 content2"
+}
+###
+PUT http://localhost:8081/api/posts/63e9fe6e8056d21110793bf7
+Content-Type: application/json
+
+{
+  "topic": "put57"
 }
 
 ###
-DELETE http://localhost:8081/api/posts/1
+GET http://localhost:8081/api/posts/63e9fe6e8056d21110793bf7
+Accept: application/json
+###
+
+DELETE http://localhost:8081/api/posts/63e9e9c6b39598e7d4e2ed71
 Content-Type: application/json
+###
+GET http://localhost:8081/api/posts/63e9e9c6b39598e7d4e2ed71
+Accept: application/json
+###
 
 
-###
-GET http://localhost:80/api/item?id=99
-Accept: application/json
-
-###
-
-###
-GET http://localhost:8081/books
-Accept: application/json
-###
-GET http://localhost:8081/api/books
-Accept: application/json
-###
-GET http://api.weatherbit.io/v2.0/current?key=161b71ae33f348868722ad1c9f0e1796&lat=48.4752389&lon=35.037077
-#GET http://api.weatherbit.io/v2.0/current?key=161b71ae33f348868722ad1c9f0e1796 //709930 - DNIPRO ID
-
-Accept: application/json
-###
-GET http://localhost:8081/weather
-Accept: application/json
-###
-GET http://localhost:8081/weather?latitude=50.434386&longitude=30.505367
-Accept: application/json

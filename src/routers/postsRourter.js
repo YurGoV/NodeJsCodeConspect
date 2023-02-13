@@ -6,6 +6,8 @@ const {
   patchPostValidation,
 } = require('../middlewars/validationMiddleware');
 
+const modelsMiddleware = require('../middlewars/models');
+
 const {
   getPosts,
   getPostById,
@@ -13,7 +15,9 @@ const {
   changePost,
   patchPost,
   deletePost,
-} = require('../../controllers/postController');
+} = require('../controllers/postsController');
+
+router.use(modelsMiddleware);
 
 // GET /api/posts
 router.get('/', getPosts);
