@@ -10,7 +10,7 @@ const {
   asyncWrapper,
 } = require('../helpers/apiHelpers');
 
-const modelsMiddleware = require('../middlewars/models');
+// const modelsMiddleware = require('../middlewars/models');
 
 const {
   getPosts,
@@ -21,7 +21,7 @@ const {
   deletePost,
 } = require('../controllers/postsController');
 
-router.use(modelsMiddleware);
+// router.use(modelsMiddleware);
 
 
 // GET /api/posts
