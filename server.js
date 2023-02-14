@@ -24,7 +24,11 @@ const client = new MongoClient(MONGO_URL);
 app.use(express.json());
 app.use(morgan('tiny'));
 
-app.use('/api/posts', postsRouter)
+app.use('/api/posts', postsRouter);
+
+app.use((error, req, res, next) => {
+    res.status(500).json({message: error.message})
+})
 
 
 

@@ -6,6 +6,10 @@ const {
   patchPostValidation,
 } = require('../middlewars/validationMiddleware');
 
+const {
+  asyncWrapper,
+} = require('../helpers/apiHelpers');
+
 const modelsMiddleware = require('../middlewars/models');
 
 const {
@@ -19,22 +23,23 @@ const {
 
 router.use(modelsMiddleware);
 
+
 // GET /api/posts
-router.get('/', getPosts);
+router.get('/', asyncWrapper(getPosts));
 
 // GET /api/posts/id
-router.get('/:id', getPostById);
+router.get('/:id', asyncWrapper(getPostById));
 
 // POST /api/posts/ => newPost
-router.post('/', addPostValidation, addPost);
+router.post('/', addPostValidation, asyncWrapper(addPost));
 
 // PUT /api/posts/id
-router.put('/:id', addPostValidation, changePost);
+router.put('/:id', addPostValidation, asyncWrapper(changePost));
 
 // PATCH /api/posts/id
-router.patch('/:id', patchPostValidation, patchPost);
+router.patch('/:id', patchPostValidation, asyncWrapper(patchPost));
 
 // DELETE /api/posts/id
-router.delete('/:id', deletePost);
+router.delete('/:id', asyncWrapper(deletePost));
 
 module.exports = {postsRouter: router};

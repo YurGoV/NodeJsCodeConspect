@@ -20,7 +20,7 @@ PUT http://localhost:8081/api/posts/63e9fe6e8056d21110793bf7
 Content-Type: application/json
 
 {
-  "topic": "put52",
+  "topic": "putLast",
   "text": "post5 content2"
 }
 ###
@@ -41,6 +41,12 @@ Content-Type: application/json
 ###
 GET http://localhost:8081/api/posts/63e9e9c6b39598e7d4e2ed71
 Accept: application/json
+###
+
+### //error querry
+GET http://localhost:8081/api/posts676767
+Accept: application/json
+
 ###
 
 
