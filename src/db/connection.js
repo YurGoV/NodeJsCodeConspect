@@ -21,10 +21,15 @@ const connectMongo = async () => {
     // const db = client.db(MONGO_DB_NAME);
     // collections.PostsCollection = db.collection('posts');
     // console.log('DB connected');
+
     mongoose.set("strictQuery", false);// todo: write more about " DeprecationWarning: Mongoose:
+
     // the `strictQuery` option will be switched back to `false` by default in Mongoose
     // 7. Use `mongoose.set('strictQuery', false);`"
-    return mongoose.connect(MONGO_URL)
+
+    // return mongoose.connect(MONGO_URL)
+    return mongoose.connect('mongodb://127.0.0.1:27017/testGoITdb')
+
 };
 
 module.exports = {
