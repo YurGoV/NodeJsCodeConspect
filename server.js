@@ -8,6 +8,7 @@ require('dotenv').config()
 
 
 const {postsRouter} = require('./src/routers/postsRourter')
+const {errorHandler} = require('./src/helpers/apiHelpers')
 
 
 const  {connectMongo} = require('./src/db/connection')
@@ -26,27 +27,13 @@ app.use(morgan('tiny'));
 
 app.use('/api/posts', postsRouter);
 
-app.use((error, req, res, next) => {
-    res.status(500).json({message: error.message})
-})
+app.use(errorHandler);
 
 
 
 const start = async () => {
 
     await connectMongo();
-
-    // await client.connect();
-    // console.log('Connected successfully to server');
-    // const db = client.db(MONGO_DB_NAME);
-    // const PostsCollection = db.collection('posts');
-
-    // const addPost =  await PostsCollection.insertOne({topic: "toptop2", text: "textex2"})
-    // await PostsCollection.insertOne({topic: "toptop4", text: "textex4"})
-
-
-    // const posts = await PostsCollection.find({}).toArray();
-    // console.log(posts);
 
     app.listen(PORT, (err) => {
         if (err) {

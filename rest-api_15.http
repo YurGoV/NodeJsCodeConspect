@@ -10,8 +10,8 @@ POST http://localhost:8081/api/posts
 Content-Type: application/json
 
 {
-  "topic": "pop6",
-  "text": "post content6"
+  "topic": "pop7",
+  "text": "post content7"
 }
 ###
 
@@ -20,10 +20,15 @@ PUT http://localhost:8081/api/posts/63e9fe6e8056d21110793bf7
 Content-Type: application/json
 
 {
-  "topic": "putLast",
-  "text": "post5 content2-2_2"
+  "topic": "putLast2",
+  "text": "post5 content2-2_2."
 }
 ###
+GET http://localhost:8081/api/posts/63e9fe6e8056d21110793bf7
+Accept: application/json
+###
+
+
 PUT http://localhost:8081/api/posts/63e9fe6e8056d21110793bf7
 Content-Type: application/json
 
@@ -36,10 +41,10 @@ GET http://localhost:8081/api/posts/63e9fe6e8056d21110793bf7
 Accept: application/json
 ###
 
-DELETE http://localhost:8081/api/posts/63ec9d7f2dc8c3786db7bef3
+DELETE http://localhost:8081/api/posts/63eddeba09a1461121807293
 Content-Type: application/json
 ###
-GET http://localhost:8081/api/posts/63ec9d7f2dc8c3786db7bef3
+GET http://localhost:8081/api/posts/63eddeba09a1461121807293
 Accept: application/json
 ###
 

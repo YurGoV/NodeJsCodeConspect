@@ -13,33 +13,33 @@ const {
 // const modelsMiddleware = require('../middlewars/models');
 
 const {
-  getPosts,
-  getPostById,
-  addPost,
-  changePost,
-  patchPost,
-  deletePost,
+  getPostsController,
+  getPostByIdController,
+  addPostController,
+  changePostController,
+  patchPostController,
+  deletePostController,
 } = require('../controllers/postsController');
 
 // router.use(modelsMiddleware);
 
 
 // GET /api/posts
-router.get('/', asyncWrapper(getPosts));
+router.get('/', asyncWrapper(getPostsController));
 
 // GET /api/posts/id
-router.get('/:id', asyncWrapper(getPostById));
+router.get('/:id', asyncWrapper(getPostByIdController));
 
 // POST /api/posts/ => newPost
-router.post('/', addPostValidation, asyncWrapper(addPost));
+router.post('/', addPostValidation, asyncWrapper(addPostController));
 
 // PUT /api/posts/id
-router.put('/:id', addPostValidation, asyncWrapper(changePost));
+router.put('/:id', addPostValidation, asyncWrapper(changePostController));
 
 // PATCH /api/posts/id
-router.patch('/:id', patchPostValidation, asyncWrapper(patchPost));
+router.patch('/:id', patchPostValidation, asyncWrapper(patchPostController));
 
 // DELETE /api/posts/id
-router.delete('/:id', asyncWrapper(deletePost));
+router.delete('/:id', asyncWrapper(deletePostController));
 
 module.exports = {postsRouter: router};

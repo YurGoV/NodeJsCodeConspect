@@ -11,5 +11,7 @@ module.exports = {
     'sourceType': 'module',
   },
   'rules': {
+    'comma-dangle': 'off',
+    'require-jsdoc': 'off'// todo: refactor code
   },
 };

@@ -28,7 +28,7 @@ const connectMongo = async () => {
     // 7. Use `mongoose.set('strictQuery', false);`"
 
     // return mongoose.connect(MONGO_URL)
-    return mongoose.connect('mongodb://127.0.0.1:27017/testGoITdb')
+    return mongoose.connect('mongodb://127.0.0.1:27017/testGoITdb')// todo: change to variables
 
 };
 
