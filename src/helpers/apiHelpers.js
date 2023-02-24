@@ -7,6 +7,7 @@ const asyncWrapper = (controller) => {
     };
 }
 
+
 const errorHandler = (error, req, res, next) => {
 
     if (

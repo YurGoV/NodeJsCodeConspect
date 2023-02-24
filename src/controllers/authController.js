@@ -4,6 +4,7 @@ const {
 } = require('../services/authService')
 
 const registrationController = async (req, res) => {
+    console.log(';regController req.body: ', req.body);
     const {
         email,
         password

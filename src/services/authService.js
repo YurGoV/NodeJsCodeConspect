@@ -7,7 +7,7 @@ const {UnAuthorizedError} = require('../helpers/errors')
 const registration = async (email, password) => {
     // email, password -> new User(email, password)
 
-    console.log('reg auth', email, password);
+    console.log('in authServise :', email, password);
     // const salt = bcrypt.genSaltSync(10);
     const user = new User({
         email, password: await bcrypt.hash(password, 10)

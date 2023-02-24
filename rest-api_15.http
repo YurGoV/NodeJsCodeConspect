@@ -41,7 +41,7 @@ GET http://localhost:8081/api/posts/63e9fe6e8056d21110793bf7
 Accept: application/json
 ###
 
-DELETE http://localhost:8081/api/posts/63eddeba09a1461121807293
+DELETE http://localhost:8081/api/posts/63f88a6c1d546cfe03b7c591
 Content-Type: application/json
 ###
 GET http://localhost:8081/api/posts/63eddeba09a1461121807293
@@ -55,6 +55,7 @@ Accept: application/json
 
 ### //registration user
 POST http://localhost:8081/api/auth/registration
+Content-Type: application/json
 
 {
   "email": "mmmmm",
