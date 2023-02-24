@@ -29,11 +29,11 @@ const {
 } = require('../controllers/authController')
 
 
-// GET /api/posts
-router.get('/registration', asyncWrapper(registrationController));
+// POST /api/auth/registration
+router.post('/registration', asyncWrapper(registrationController));
 
 // GET /api/posts/id
-router.get('/login', asyncWrapper(loginController));
+router.post('/login', asyncWrapper(loginController));
 
 /*// POST /api/posts/ => newPost
 router.post('/', addPostValidation, asyncWrapper(addPostController));

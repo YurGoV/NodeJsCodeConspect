@@ -14,7 +14,7 @@ class WrongPostIdError extends Error {
     }
 }
 
-class UnAuthorized extends Error {
+class UnAuthorizedError extends Error {
     constructor(message) {
         super(message);
         this.status = 401;
@@ -25,5 +25,5 @@ class UnAuthorized extends Error {
 module.exports = {
     ValidationError,
     WrongPostIdError,
-    UnAuthorized,
+    UnAuthorizedError,
 }

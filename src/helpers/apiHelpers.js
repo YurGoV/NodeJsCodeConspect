@@ -2,6 +2,7 @@ const {ValidationError, WrongPostIdError} = require('./errors')
 
 const asyncWrapper = (controller) => {
     return (req, res, next) => {
+        console.log('apiHelpers req.body: ',req.body);
         controller(req, res).catch(next);
     };
 }

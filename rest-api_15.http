@@ -10,7 +10,7 @@ POST http://localhost:8081/api/posts
 Content-Type: application/json
 
 {
-  "topic": "pop7",
+  "topic": "pop12",
   "text": "post content7"
 }
 ###
@@ -51,7 +51,15 @@ Accept: application/json
 ### //error querry
 GET http://localhost:8081/api/posts676767
 Accept: application/json
+###
 
+### //registration user
+POST http://localhost:8081/api/auth/registration
+
+{
+  "email": "mmmmm",
+  "password": "321"
+}
 ###
 
 

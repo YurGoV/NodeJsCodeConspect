@@ -1,13 +1,14 @@
 const {User} = require('../db/userModel');
 const bcrypt = require('bcrypt');
-const {UnAuthorized} = require('../helpers/errors')
+const {UnAuthorizedError} = require('../helpers/errors')
 
 
 
 const registration = async (email, password) => {
-    // email, password -> nw User(email, password)
+    // email, password -> new User(email, password)
 
-
+    console.log('reg auth', email, password);
+    // const salt = bcrypt.genSaltSync(10);
     const user = new User({
         email, password: await bcrypt.hash(password, 10)
     });
