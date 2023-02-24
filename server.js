@@ -7,11 +7,10 @@ const app = express();
 require('dotenv').config()
 
 
-const {postsRouter} = require('./src/routers/postsRourter')
-const {errorHandler} = require('./src/helpers/apiHelpers')
-
-
 const  {connectMongo} = require('./src/db/connection')
+const {postsRouter} = require('./src/routers/postsRourter')
+const {authRouter} = require('./src/routers/authRouter')
+const {errorHandler} = require('./src/helpers/apiHelpers')
 
 const PORT = process.env.PORT || 8082;
 const MONGO_URL = process.env.MONGO_URL
@@ -26,6 +25,7 @@ app.use(express.json());
 app.use(morgan('tiny'));
 
 app.use('/api/posts', postsRouter);
+app.use('/api/auth', authRouter);
 
 app.use(errorHandler);
 
