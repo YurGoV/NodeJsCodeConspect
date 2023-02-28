@@ -1,4 +1,11 @@
-class ValidationError extends Error {
+class ValidationMainError extends Error {
+    constructor(message) {
+        super(message);
+        this.status = 400;
+    }
+}
+
+class ValidationError extends ValidationMainError {
     constructor(message) {
         super(message);
         this.status = 400;
@@ -6,7 +13,7 @@ class ValidationError extends Error {
     }
 }
 
-class WrongPostIdError extends Error {
+class WrongPostIdError extends ValidationMainError {
     constructor(message) {
         super(message);
         this.status = 400;
@@ -14,7 +21,7 @@ class WrongPostIdError extends Error {
     }
 }
 
-class UnAuthorizedError extends Error {
+class UnAuthorizedError extends ValidationMainError {
     constructor(message) {
         super(message);
         this.status = 401;
@@ -23,6 +30,7 @@ class UnAuthorizedError extends Error {
 }
 
 module.exports = {
+    ValidationMainError,
     ValidationError,
     WrongPostIdError,
     UnAuthorizedError,

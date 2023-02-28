@@ -5,6 +5,9 @@ const {
   addPostValidation,
   patchPostValidation,
 } = require('../middlewars/validationMiddleware');
+const {
+  authMiddleware,
+} = require('../middlewars/authMiddleware');
 
 const {
   asyncWrapper,
@@ -23,6 +26,7 @@ const {
 
 // router.use(modelsMiddleware);
 
+router.use(authMiddleware); // використвуємо для усіх маршрутів
 
 // GET /api/posts
 router.get('/', asyncWrapper(getPostsController));

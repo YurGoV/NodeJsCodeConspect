@@ -16,7 +16,16 @@ const registrationController = async (req, res) => {
 
     res.json({status: 'success'});
 };
-const loginController = (req, res) => {
+
+const loginController = async (req, res) => {
+    const {
+        email,
+        password
+    } = req.body;
+
+    const token = await login(email, password);
+
+    res.json({status: 'success', token});
 
 };
 

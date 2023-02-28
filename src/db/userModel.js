@@ -1,4 +1,6 @@
 const mongoose = require('mongoose');
+const bcrypt = require('bcrypt');
+
 
 const userSchema = new mongoose.Schema({
     email: {
@@ -33,6 +35,12 @@ const userSchema = new mongoose.Schema({
     // comments: [Object]
 });
 
+userSchema.pre('save', async function() {// оскільки тут this - не можна використвувати анонімну функцію
+    if (this.isNew) {// тут this - це документ
+        this.password = await bcrypt.hash(this.password, 10);
+    }
+    // todo: if user changed his password
+});
 // const Post = mongoose.model('User', postSchema);
 const User = mongoose.model('User', userSchema);// 'Post' - назва колекції (в базі вона буде з маленької та у множині - posts
 

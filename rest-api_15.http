@@ -1,17 +1,20 @@
 GET http://localhost:8081/api/posts
 Accept: application/json
 
+
 ###
 GET http://localhost:8081/api/posts/63e950f501d1b8ba104809f7
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2ZjOTAxNTcxN2FiOWE1ZGVhNjczZmIiLCJjcmVhdGVkQXQiOiIyMDIzLTAyLTI3VDExOjA3OjU0LjI4OFoiLCJpYXQiOjE2Nzc1OTIxMzd9.G6SZu6jIbTLDSl1YaxhvpoqhxBI41eeJP3As7Rxr1nw
 Accept: application/json
 ###
 
 POST http://localhost:8081/api/posts
 Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2ZjOTAxNTcxN2FiOWE1ZGVhNjczZmIiLCJjcmVhdGVkQXQiOiIyMDIzLTAyLTI3VDExOjA3OjU0LjI4OFoiLCJpYXQiOjE2Nzc1ODg2MTR9.g7h55vbx3Nx3GuDkkaYLzVEcYcUUIzGgwP8feWh1eHo
 
 {
-  "topic": "pop12",
-  "text": "post content7"
+  "topic": "pop22",
+  "text": "post content22"
 }
 ###
 
@@ -58,9 +61,36 @@ POST http://localhost:8081/api/auth/registration
 Content-Type: application/json
 
 {
-  "email": "mmmmm",
+  "email": "mmmmm5",
   "password": "321"
 }
 ###
+
+### registration check:
+POST http://localhost:8081/api/auth/registration
+Content-Type: application/json
+
+{
+  "email": "mmmmm4",
+  "password": "321"
+}
+
+###
+POST http://localhost:8081/api/auth/login
+Content-Type: application/json
+
+{
+  "email": "mmmmm4",
+  "password": "321"
+}
+
+###
+GET http://localhost:8081/api/posts
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2ZjOTAxNTcxN2FiOWE1ZGVhNjczZmIiLCJjcmVhdGVkQXQiOiIyMDIzLTAyLTI3VDExOjA3OjU0LjI4OFoiLCJpYXQiOjE2Nzc1OTIxMzd9.G6SZu6jIbTLDSl1YaxhvpoqhxBI41eeJP3As7Rxr1nw
+
+###
+Content-Type: application/json
+#Accept: application/json
+
 
 

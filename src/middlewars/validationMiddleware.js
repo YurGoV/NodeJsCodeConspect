@@ -16,7 +16,7 @@ module.exports = {
         });
         const validationResult = schema.validate(req.body);
         if (validationResult.error) {
-            next(new ValidationError(validationResult.error.details[0].message));
+            next(new ValidationError(validationResult.error.details[0].message));// todo: refactoring: errors can be more than one
         }
 
         next();

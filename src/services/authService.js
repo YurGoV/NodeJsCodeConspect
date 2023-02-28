@@ -1,7 +1,7 @@
 const {User} = require('../db/userModel');
+const {UnAuthorizedError} = require('../helpers/errors');
 const bcrypt = require('bcrypt');
-const {UnAuthorizedError} = require('../helpers/errors')
-
+const jwt = require('jsonwebtoken')
 
 
 const registration = async (email, password) => {
@@ -10,12 +10,32 @@ const registration = async (email, password) => {
     console.log('in authServise :', email, password);
     // const salt = bcrypt.genSaltSync(10);
     const user = new User({
-        email, password: await bcrypt.hash(password, 10)
+        email, password,
     });
     await user.save();
 };
 
-const login = async (id) => {
+const login = async (email, password) => {
+
+    const user = await User.findOne({email});
+    if (!user) {
+        throw new UnAuthorizedError(`No user with ${email} found`);
+    }
+    console.log('user.password in authService', user.password);
+
+    if (!await bcrypt.compare(password, user.password)) {
+        throw new UnAuthorizedError(`Wrong password`);
+    }
+
+    const token = jwt.sign({
+        _id: user._id,
+        createdAt: user.createdAt,
+    }, process.env.JWT_SECRET);
+
+    console.log('token  in authService', token);
+
+    return token;
+
     /*const post = await Post.findById(id);
 
     if (!post) {
