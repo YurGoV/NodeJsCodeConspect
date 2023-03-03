@@ -5,9 +5,9 @@ const {UnAuthorizedError} = require('../helpers/errors')
 const authMiddleware = (req, res, next) => {
     // token?
     try {
-        console.log('req.headers in aMiddleware', req.headers);
+        console.log('req.headers in authMiddleware', req.headers);
         const [, token] = req.headers['authorization'].split(' ');// todo: fix "split of undefined // validate token type"
-        console.log('authMiddleware: :', tokenType, '/', token);
+        console.log('token in authMiddleware: /', token);
         if (!token) {
             next(new UnAuthorizedError('Please, provide a token'))
         }

@@ -3,14 +3,18 @@ const {WrongPostIdError, UnAuthorizedError} = require('../helpers/errors')
 
 
 
-const getPosts = async (userId) => {
+const getPosts = async (userId, {skip, limit}) => {
     console.log('userId in postsService: ', userId);
-    const posts = await Post.find({userId});// todo ??? find by userId ???
+    const posts = await Post.find({userId})
+        .select({__v: 0, })
+        .skip(parseInt(skip))
+        .limit(parseInt(limit))
+        .sort('topic');
     return posts;
 };
 
 const getPostById = async (postId, userId) => {
-    const post = await Post.findOne({_id: postId, userId});// todo: check
+    const post = await Post.findOne({_id: postId, userId});// todo: check with two users
 
     if (!post) {
         throw new WrongPostIdError( `no post with id ${postId} found`)

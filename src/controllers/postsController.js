@@ -12,11 +12,16 @@ const getPostsController = async (req, res) => {
     console.log('req.user & req.token in postsController (getPosts...', req.user, req.token);
 
     const {_id: userId} = req.user;
-    ;
+    let { // todo: pagination
+        skip = 0,
+        limit = 5
+    } = req.query;
+    limit = parseInt(limit) > 10 ? 10 : parseInt(limit);// todo add pages count
+    skip = parseInt(skip) > 10 ? 10 : parseInt(skip);
 
-    const posts = await getPosts(userId);
+    const posts = await getPosts(userId, {skip, limit});
     // console.log('posts in postsController (getPosts...', posts);// all fine
-    res.json({posts});
+    res.json({posts, skip, limit});
 };
 
 const getPostByIdController = async (req, res) => {

@@ -10,10 +10,10 @@ Accept: application/json
 
 POST http://localhost:8081/api/posts
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2ZjOTAxNTcxN2FiOWE1ZGVhNjczZmIiLCJjcmVhdGVkQXQiOiIyMDIzLTAyLTI3VDExOjA3OjU0LjI4OFoiLCJpYXQiOjE2Nzc1ODg2MTR9.g7h55vbx3Nx3GuDkkaYLzVEcYcUUIzGgwP8feWh1eHo
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2ZjOTAxNTcxN2FiOWE1ZGVhNjczZmIiLCJjcmVhdGVkQXQiOiIyMDIzLTAyLTI3VDExOjA3OjU0LjI4OFoiLCJpYXQiOjE2Nzc3Njc4NzF9.x05D4akuZzJNcCS_iDyaEicwr8wwM_SNbhni_nflEIM
 
 {
-  "topic": "pop22",
+  "topic": "pop36",
   "text": "post content22"
 }
 ###
@@ -86,11 +86,15 @@ Content-Type: application/json
 
 ###
 GET http://localhost:8081/api/posts
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2ZjOTAxNTcxN2FiOWE1ZGVhNjczZmIiLCJjcmVhdGVkQXQiOiIyMDIzLTAyLTI3VDExOjA3OjU0LjI4OFoiLCJpYXQiOjE2Nzc1OTIxMzd9.G6SZu6jIbTLDSl1YaxhvpoqhxBI41eeJP3As7Rxr1nw
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2ZjOTAxNTcxN2FiOWE1ZGVhNjczZmIiLCJjcmVhdGVkQXQiOiIyMDIzLTAyLTI3VDExOjA3OjU0LjI4OFoiLCJpYXQiOjE2Nzc3Njc4NzF9.x05D4akuZzJNcCS_iDyaEicwr8wwM_SNbhni_nflEIM
 
 ###
-Content-Type: application/json
-#Accept: application/json
+###
+GET http://localhost:8081/api/posts?skip=2&limit=2
+Accept: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2ZjOTAxNTcxN2FiOWE1ZGVhNjczZmIiLCJjcmVhdGVkQXQiOiIyMDIzLTAyLTI3VDExOjA3OjU0LjI4OFoiLCJpYXQiOjE2Nzc3Njc4NzF9.x05D4akuZzJNcCS_iDyaEicwr8wwM_SNbhni_nflEIM
+
+###
 
 
 
