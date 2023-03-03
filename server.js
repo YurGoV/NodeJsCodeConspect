@@ -26,6 +26,7 @@ app.use(morgan('tiny'));
 
 app.use('/api/posts', postsRouter);
 app.use('/api/auth', authRouter);
+// app.use('/api/files', )
 
 app.use(errorHandler);
 
