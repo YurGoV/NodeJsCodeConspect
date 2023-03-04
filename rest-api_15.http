@@ -1,5 +1,23 @@
+POST http://localhost:8081/api/files/upload
+Content-Type: multipart/form-data; boundary=boundary
+Content-Disposition: form-data; name="data"; filename="data.json"
+
+
+--boundary
+Content-Disposition: form-data; name="avatar"; filename="data.txt"
+Content-Type: file
+
+< ./data.txt
+--boundary--
+###
+GET http://localhost:8081/api/files/download/data_2e47bd43-abe1-44b4-aaf5-74c1ac241246.txt
+
+
+
+###
 GET http://localhost:8081/api/posts
 Accept: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2ZjOTAxNTcxN2FiOWE1ZGVhNjczZmIiLCJjcmVhdGVkQXQiOiIyMDIzLTAyLTI3VDExOjA3OjU0LjI4OFoiLCJpYXQiOjE2Nzc1OTIxMzd9.G6SZu6jIbTLDSl1YaxhvpoqhxBI41eeJP3As7Rxr1nw
 
 
 ###
